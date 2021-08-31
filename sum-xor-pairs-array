@@ -1,0 +1,33 @@
+#include<bits/stdc++.h>
+#define ll long long 
+using namespace std;
+int main()
+{
+  ll t;
+  cin>>t;
+  while(t--)
+  {
+    ll n,a;
+    cin>>n;
+    vector<ll>v;
+    for(ll i=0;i<n;i++)
+    {
+      cin>>a;
+      v.push_back(a);
+    }
+    ll sum=0;
+    for(int i=0;i<32;i++)
+    {
+      ll o=0,e=0;
+      for(int j=0;j<n;j++)
+      {
+        if((1<<i)&v[j])
+        o++;
+        else
+        e++;
+      }
+      sum+=(o*e)*(1<<i);
+    }
+    cout<<sum<<endl;
+  }
+}
